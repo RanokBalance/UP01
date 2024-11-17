@@ -1,0 +1,106 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+
+public class Matematiko extends JFrame {
+    private JLabel[][] cells = new JLabel[5][5];
+    private JButton drawCardButton;
+    private JLabel drawnCardLabel;
+    private JLabel PSL;
+    private JLabel CSL;
+    private int PS = 0;
+    private int CS = 0;
+    private int[][] field = new int[5][5];
+    private Random random = new Random();
+
+    public Matematiko() {
+        setLayout(new BorderLayout());
+
+        JPanel fieldPanel = new JPanel();
+        fieldPanel.setLayout(new GridLayout(5, 5));
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                cells[i][j] = new JLabel("");
+                cells[i][j].setBorder(BorderFactory.createLineBorder(Color.BLACK));
+                fieldPanel.add(cells[i][j]);
+            }
+        }
+        add(fieldPanel, BorderLayout.CENTER);
+
+        JPanel controlPanel = new JPanel();
+        controlPanel.setLayout(new FlowLayout());
+        drawCardButton = new JButton("Вытянуть карту");
+        drawCardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                drawCard();
+            }
+        });
+        controlPanel.add(drawCardButton);
+        drawnCardLabel = new JLabel("Вытянутая карта: ");
+        controlPanel.add(drawnCardLabel);
+        PSL = new JLabel("Счет игрока: 0");
+        controlPanel.add(PSL);
+        CSL = new JLabel("Счет компьютера: 0");
+        controlPanel.add(CSL);
+        add(controlPanel, BorderLayout.SOUTH);
+
+        drawCard();
+    }
+
+    private void drawCard() {
+        int card = random.nextInt(13) + 1;
+        drawnCardLabel.setText("Вытянутая карта: " + card);
+
+        int playerRow = random.nextInt(5);
+        int playerCol = random.nextInt(5);
+        while (field[playerRow][playerCol] != 0) {
+            playerRow = random.nextInt(5);
+            playerCol = random.nextInt(5);
+        }
+        field[playerRow][playerCol] = card;
+        cells[playerRow][playerCol].setText(String.valueOf(card));
+        PS += card;
+        PSL.setText("Счет игрока: " + PS);
+
+        int computerRow = random.nextInt(5);
+        int computerCol = random.nextInt(5);
+        while (field[computerRow][computerCol] != 0) {
+            computerRow = random.nextInt(5);
+            computerCol = random.nextInt(5);
+        }
+        field[computerRow][computerCol] = card;
+        cells[computerRow][computerCol].setText(String.valueOf(card));
+        CS += card;
+        CSL.setText("Счет компьютера: " + CS);
+
+        boolean gameOver = true;
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (field[i][j] == 0) {
+                    gameOver = false;
+                    break;
+                }
+            }
+        }
+        if (gameOver) {
+            drawCardButton.setEnabled(false);
+            if (PS > CS) {
+                JOptionPane.showMessageDialog(this, "Игрок выиграл!");
+            } else if (PS < CS) {
+                JOptionPane.showMessageDialog(this, "Компьютер выиграл!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Ничья!");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Matematiko game = new Matematiko();
+        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        game.setSize(400, 400);
+        game.setVisible(true);
+    }
+}
