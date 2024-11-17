@@ -1,0 +1,56 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Matrix {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите размер матрицы: ");
+        int n = scanner.nextInt();
+
+        int[][] matrix = new int[n][n];
+        Random random = new Random();
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = random.nextInt(2 * n + 1) - n;
+            }
+        }
+
+        System.out.println("Обычная матрица:");
+        printMatrix(matrix);
+
+        sortMatrixRows(matrix);
+
+        System.out.println("Сортированная матрица:");
+        printMatrix(matrix);
+    }
+
+    private static void sortMatrixRows(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = i + 1; j < matrix.length; j++) {
+                if (getSum(matrix[i]) > getSum(matrix[j])) {
+                    int[] temp = matrix[i];
+                    matrix[i] = matrix[j];
+                    matrix[j] = temp;
+                }
+            }
+        }
+    }
+
+    private static int getSum(int[] row) {
+        int sum = 0;
+        for (int element : row) {
+            sum += element;
+        }
+        return sum;
+    }
+
+    private static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
