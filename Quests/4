@@ -1,0 +1,67 @@
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Notepad {
+    private List<Note> notes;
+
+    public Notepad() {
+        this.notes = new ArrayList<>();
+    }
+
+    public void addNote(String text, LocalDate date) {
+        Note note = new Note(text, date);
+        notes.add(note);
+    }
+
+    public void printNotes() {
+        for (Note note : notes) {
+            System.out.println(note);
+        }
+    }
+
+    public void printNotesByDate(LocalDate date) {
+        for (Note note : notes) {
+            if (note.getDate().equals(date)) {
+                System.out.println(note);
+            }
+        }
+    }
+
+    public class Note {
+        private String text;
+        private LocalDate date;
+
+        public Note(String text, LocalDate date) {
+            this.text = text;
+            this.date = date;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public LocalDate getDate() {
+            return date;
+        }
+
+        @Override
+        public String toString() {
+            return "Дата: " + date + ", Текст: " + text;
+        }
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        Notepad notepad = new Notepad();
+        notepad.addNote("Сходить в магазин", LocalDate.of(2022, 3, 15));
+        notepad.addNote("Позвонить другу", LocalDate.of(2022, 3, 15));
+        notepad.addNote("Сделать домашнее задание", LocalDate.of(2022, 3, 16));
+
+        System.out.println("Все записи:");
+        notepad.printNotes();
+
+        System.out.println("Записи на 15 марта:");
+        notepad.printNotesByDate(LocalDate.of(2022, 3, 15));
+    }
+}
