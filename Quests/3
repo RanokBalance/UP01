@@ -1,0 +1,135 @@
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Objects;
+import java.util.Scanner;
+
+class Month {
+    private int month;
+
+    public Month(int month) {
+        this.month = month;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+}
+
+class Day {
+    private int day;
+
+    public Day(int day) {
+        this.day = day;
+    }
+
+    public int getDay() {
+        return day;
+    }
+}
+
+class Year {
+    private int year;
+
+    public Year(int year) {
+        this.year = year;
+    }
+
+    public int getYear() {
+        return year;
+    }
+}
+
+class Date {
+    private Year year;
+    private Month month;
+    private Day day;
+
+    public Date(Year year, Month month, Day day) {
+        this.year = year;
+        this.month = month;
+        this.day = day;
+    }
+
+    public void setDate(int year, int month, int day) {
+        this.year = new Year(year);
+        this.month = new Month(month);
+        this.day = new Day(day);
+    }
+
+    public void printDayOfWeek() {
+        LocalDate localDate = LocalDate.of(year.getYear(), month.getMonth(), day.getDay());
+        DayOfWeek dayOfWeek = localDate.getDayOfWeek();
+        System.out.println("День недели: " + dayOfWeek);
+    }
+
+    public long calculateDaysBetweenDates(Date startDate, Date endDate) {
+        LocalDate startLocalDate = LocalDate.of(startDate.year.getYear(), startDate.month.getMonth(), startDate.day.getDay());
+        LocalDate endLocalDate = LocalDate.of(endDate.year.getYear(), endDate.month.getMonth(), endDate.day.getDay());
+        return ChronoUnit.DAYS.between(startLocalDate, endLocalDate);
+    }
+
+    public long calculateMonthsBetweenDates(Date startDate, Date endDate) {
+        LocalDate startLocalDate = LocalDate.of(startDate.year.getYear(), startDate.month.getMonth(), startDate.day.getDay());
+        LocalDate endLocalDate = LocalDate.of(endDate.year.getYear(), endDate.month.getMonth(), endDate.day.getDay());
+        return ChronoUnit.MONTHS.between(startLocalDate, endLocalDate);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Date date = (Date) o;
+        return year.equals(date.year) && month.equals(date.month) && day.equals(date.day);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(year, month, day);
+    }
+
+    @Override
+    public String toString() {
+        return "Дата{" +
+                "Год=" + year +
+                ", Месяц=" + month +
+                ", День=" + day +
+                '}';
+    }
+}
+
+public class DateApp {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите год: ");
+        int year = scanner.nextInt();
+        System.out.print("Введите месяц: ");
+        int month = scanner.nextInt();
+        System.out.print("Введите день: ");
+        int day = scanner.nextInt();
+
+        Date date = new Date(new Year(year), new Month(month), new Day(day));
+        date.printDayOfWeek();
+
+        System.out.print("Введите год: ");
+        int startYear = scanner.nextInt();
+        System.out.print("Введите месяц: ");
+        int startMonth = scanner.nextInt();
+        System.out.print("Введите день: ");
+        int startDay = scanner.nextInt();
+
+        System.out.print("Введите год: ");
+        int endYear = scanner.nextInt();
+        System.out.print("Введите месяц: ");
+        int endMonth = scanner.nextInt();
+        System.out.print("Введите день: ");
+        int endDay = scanner.nextInt();
+
+        Date startDate = new Date(new Year(startYear), new Month(startMonth), new Day(startDay));
+        Date endDate = new Date(new Year(endYear), new Month(endMonth), new Day(endDay));
+
+        System.out.println("Дней между датами: " + date.calculateDaysBetweenDates(startDate, endDate));
+        System.out.println("Месяцей между датами: " + date.calculateMonthsBetweenDates(startDate, endDate));
+    }
+}
