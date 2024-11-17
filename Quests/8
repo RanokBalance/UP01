@@ -1,0 +1,121 @@
+package org.example;
+
+import java.awt.*;
+
+public class Constructor {
+    private int x; // Координата X верхнего левого угла
+    private int y; // Координата Y верхнего левого угла
+    private int width; // Ширина прямоугольника
+    private int height; // Высота прямоугольника
+
+    // Конструктор
+    public Constructor(int x, int y, int width, int height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
+
+    // Методы для перемещения
+    public void move(int deltaX, int deltaY) {
+        x += deltaX;
+        y += deltaY;
+    }
+
+    // Методы для изменения размеров
+    public void resize(int newWidth, int newHeight) {
+        width = newWidth;
+        height = newHeight;
+    }
+
+    // Метод для нахождения объединяющего прямоугольника
+    public static Constructor boundingBox(Constructor r1, Constructor r2) {
+        int minX = Math.min(r1.x, r2.x);
+        int minY = Math.min(r1.y, r2.y);
+        int maxX = Math.max(r1.x + r1.width, r2.x + r2.width);
+        int maxY = Math.max(r1.y + r1.height, r2.y + r2.height);
+        return new Constructor(minX, minY, maxX - minX, maxY - minY);
+    }
+
+    // Метод для нахождения пересечения двух прямоугольников
+    public static Constructor intersection(Constructor r1, Constructor r2) {
+        int interLeft = Math.max(r1.x, r2.x);
+        int interTop = Math.max(r1.y, r2.y);
+        int interRight = Math.min(r1.x + r1.width, r2.x + r2.width);
+        int interBottom = Math.min(r1.y + r1.height, r2.y + r2.height);
+
+        if (interLeft < interRight && interTop < interBottom) {
+            return new Constructor(interLeft, interTop, interRight - interLeft, interBottom - interTop);
+        } else {
+            return null; // Пересечение отсутствует
+        }
+    }
+
+    // Метод для отрисовки прямоугольника (можно будет использовать в GUI)
+    public void draw(Graphics g) {
+        g.drawRect(x, y, width, height);
+    }
+
+}
+package org.example;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class Main extends JPanel {
+    private Constructor constr1;
+    private Constructor constr2;
+
+    public Main() {
+        // Пример прямоугольников
+        constr1 = new Constructor(50, 50, 100, 50);
+        constr2 = new Constructor(120, 80, 60, 100);
+
+        // Добавление обработчика мыши для перемещения прямоугольников
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if (e.getButton() == MouseEvent.BUTTON1) {
+                    constr1.move(10, 10); // Пример перемещения прямоугольника
+                    repaint();
+                } else if (e.getButton() == MouseEvent.BUTTON3) {
+                    constr2.move(-10, -10); // Перемещение второго прямоугольника
+                    repaint();
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        constr1.draw(g);
+        constr2.draw(g);
+
+        // Отрисовка объединяющего прямоугольника
+        Constructor boundingBox = Constructor.boundingBox(constr1, constr2);
+        if (boundingBox != null) {
+            g.setColor(Color.GRAY);
+            boundingBox.draw(g);
+        }
+
+        // Отрисовка пересечения
+        Constructor intersection = Constructor.intersection(constr1, constr2);
+        if (intersection != null) {
+            g.setColor(Color.RED);
+            intersection.draw(g);
+        }
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Constructor App");
+        Main app = new Main();
+
+        frame.add(app);
+        frame.setSize(400, 400);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+}
