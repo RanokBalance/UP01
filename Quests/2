@@ -1,0 +1,117 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        List<Quadrilateral> quadrilaterals = new ArrayList<>();
+        quadrilaterals.add(new Square(5));
+        quadrilaterals.add(new Rectangle(5, 10));
+        quadrilaterals.add(new Rhombus(6, 8));
+        quadrilaterals.add(new Square(7));
+        quadrilaterals.add(new Rectangle(3, 6));
+        quadrilaterals.add(new Rhombus(4, 6));
+        quadrilaterals.add(new Square(8));
+        quadrilaterals.add(new Rectangle(4, 8));
+        quadrilaterals.add(new Rhombus(5, 7));
+
+        Map<String, List<Quadrilateral>> groups = groupByType(quadrilaterals);
+        for (Map.Entry<String, List<Quadrilateral>> entry : groups.entrySet()) {
+            String type = entry.getKey();
+            List<Quadrilateral> group = entry.getValue();
+            Quadrilateral minByArea = Collections.min(group, Comparator.comparingDouble(Quadrilateral::getArea));
+            Quadrilateral maxByArea = Collections.max(group, Comparator.comparingDouble(Quadrilateral::getArea));
+            Quadrilateral minByPerimeter = Collections.min(group, Comparator.comparingDouble(Quadrilateral::getPerimeter));
+            Quadrilateral maxByPerimeter = Collections.max(group, Comparator.comparingDouble(Quadrilateral::getPerimeter));
+            System.out.println(type + ":");
+            System.out.println("\tМинимальная площадь: " + minByArea.getArea());
+            System.out.println("\tМаксимальная площадь: " + maxByArea.getArea());
+            System.out.println("\tМинимальный периметр: " + minByPerimeter.getPerimeter());
+            System.out.println("\tМаксимальный периметр: " + maxByPerimeter.getPerimeter());
+        }
+    }
+
+    public static Map<String, List<Quadrilateral>> groupByType(List<Quadrilateral> quadrilaterals) {
+        Map<String, List<Quadrilateral>> groups = new HashMap<>();
+        for (Quadrilateral quadrilateral : quadrilaterals) {
+            String type = quadrilateral.getType();
+            if (!groups.containsKey(type)) {
+                groups.put(type, new ArrayList<>());
+            }
+            groups.get(type).add(quadrilateral);
+        }
+        return groups;
+    }
+}
+
+abstract class Quadrilateral {
+    protected double side1;
+    protected double side2;
+    protected double side3;
+    protected double side4;
+
+    public Quadrilateral(double side1, double side2, double side3, double side4) {
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+        this.side4 = side4;
+    }
+
+    public double getPerimeter() {
+        return side1 + side2 + side3 + side4;
+    }
+
+    public abstract double getArea();
+
+    public String getType() {
+        if (side1 == side2 && side2 == side3 && side3 == side4) {
+            return "Квадрат";
+        } else if (side1 == side3 && side2 == side4) {
+            return "Прямоугольник";
+        } else if (side1 == side3 && side2 == side4 && side1 != side2) {
+            return "Ромб";
+        } else {
+            return "Произвольный четырехугольник";
+        }
+    }
+}
+
+class Square extends Quadrilateral {
+    public Square(double side) {
+        super(side, side, side, side);
+    }
+
+    @Override
+    public double getArea() {
+        return side1 * side1;
+    }
+}
+
+class Rectangle extends Quadrilateral {
+    public Rectangle(double width, double height) {
+        super(width, height, width, height);
+    }
+
+    @Override
+    public double getArea() {
+        return side1 * side2;
+    }
+}
+
+class Rhombus extends Quadrilateral {
+    private double diagonal1;
+    private double diagonal2;
+
+    public Rhombus(double diagonal1, double diagonal2) {
+        super(Math.sqrt(Math.pow(diagonal1 / 2, 2) + Math.pow(diagonal2 / 2, 2)),
+                Math.sqrt(Math.pow(diagonal1 / 2, 2) + Math.pow(diagonal2 / 2, 2)),
+                Math.sqrt(Math.pow(diagonal1 / 2, 2) + Math.pow(diagonal2 / 2, 2)),
+                Math.sqrt(Math.pow(diagonal1 / 2, 2) + Math.pow(diagonal2 / 2, 2)));
+        this.diagonal1 = diagonal1;
+        this.diagonal2 = diagonal2;
+    }
+
+    @Override
+    public double getArea() {
+        return diagonal1 * diagonal2 / 2;
+    }
+}
