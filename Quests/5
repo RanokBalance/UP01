@@ -1,0 +1,22 @@
+public class Main {
+    public static void main(String[] args) {
+        String text = "Подсчитать количество содержащихся в данном тексте знаков препинания.";
+
+        int punctuationCount = 0;
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+            if (Character.getType(c) == Character.CONNECTOR_PUNCTUATION ||
+                    Character.getType(c) == Character.CURRENCY_SYMBOL ||
+                    Character.getType(c) == Character.DASH_PUNCTUATION ||
+                    Character.getType(c) == Character.END_PUNCTUATION ||
+                    Character.getType(c) == Character.FINAL_QUOTE_PUNCTUATION ||
+                    Character.getType(c) == Character.INITIAL_QUOTE_PUNCTUATION ||
+                    Character.getType(c) == Character.OTHER_PUNCTUATION ||
+                    Character.getType(c) == Character.START_PUNCTUATION) {
+                punctuationCount++;
+            }
+        }
+
+        System.out.println("Количество знаков препинания в тексте: " + punctuationCount);
+    }
+}
