@@ -1,0 +1,154 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.myapplication"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <permission
+11-->[androidx.core:core:1.13.0] C:\Users\Ranok\.gradle\caches\transforms-3\a998ddfd74e21c8282e9feb7c768bdd4\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
+12        android:name="com.example.myapplication.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+12-->[androidx.core:core:1.13.0] C:\Users\Ranok\.gradle\caches\transforms-3\a998ddfd74e21c8282e9feb7c768bdd4\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
+13        android:protectionLevel="signature" />
+13-->[androidx.core:core:1.13.0] C:\Users\Ranok\.gradle\caches\transforms-3\a998ddfd74e21c8282e9feb7c768bdd4\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+14
+15    <uses-permission android:name="com.example.myapplication.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+15-->[androidx.core:core:1.13.0] C:\Users\Ranok\.gradle\caches\transforms-3\a998ddfd74e21c8282e9feb7c768bdd4\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
+15-->[androidx.core:core:1.13.0] C:\Users\Ranok\.gradle\caches\transforms-3\a998ddfd74e21c8282e9feb7c768bdd4\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
+16
+17    <application
+17-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:5:2-46:16
+18        android:allowBackup="true"
+18-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:6:3-29
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.13.0] C:\Users\Ranok\.gradle\caches\transforms-3\a998ddfd74e21c8282e9feb7c768bdd4\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
+20        android:dataExtractionRules="@xml/data_extraction_rules"
+20-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:7:3-59
+21        android:debuggable="true"
+22        android:extractNativeLibs="false"
+23        android:fullBackupContent="@xml/backup_rules"
+23-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:8:3-48
+24        android:icon="@mipmap/ic_launcher"
+24-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:9:3-37
+25        android:label="@string/app_name"
+25-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:10:3-35
+26        android:roundIcon="@mipmap/ic_launcher_round"
+26-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:11:3-48
+27        android:supportsRtl="true"
+27-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:12:3-29
+28        android:testOnly="true"
+29        android:theme="@style/Theme.MyApplication" >
+29-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:13:3-45
+30        <activity
+30-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:16:3-24:14
+31            android:name="com.example.myapplication.activity.notesactivites.MainMenu"
+31-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:17:4-52
+32            android:exported="true" >
+32-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:18:4-27
+33            <intent-filter>
+33-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:19:4-23:20
+34                <action android:name="android.intent.action.MAIN" />
+34-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:20:5-57
+34-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:20:13-54
+35
+36                <category android:name="android.intent.category.LAUNCHER" />
+36-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:22:5-65
+36-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:22:15-62
+37            </intent-filter>
+38        </activity>
+39        <activity
+39-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:26:3-29:6
+40            android:name="com.example.myapplication.activity.notesactivites.Date"
+40-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:27:4-48
+41            android:exported="true" />
+41-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:28:4-27
+42        <activity
+42-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:31:3-34:6
+43            android:name="com.example.myapplication.activity.notesactivites.Status"
+43-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:32:4-50
+44            android:exported="true" />
+44-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:33:4-27
+45        <activity
+45-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:36:3-39:6
+46            android:name="com.example.myapplication.activity.notesactivites.Users"
+46-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:37:4-49
+47            android:exported="true" />
+47-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:38:4-27
+48        <activity
+48-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:41:3-44:6
+49            android:name="com.example.myapplication.activity.notesactivites.Notes"
+49-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:42:4-49
+50            android:exported="true" />
+50-->C:\Users\Ranok\AndroidStudioProjects\MyApplication4\app\src\main\AndroidManifest.xml:43:4-27
+51
+52        <provider
+52-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Ranok\.gradle\caches\transforms-3\9b26ebfaeedcc0fd74d356a043bd55ec\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+53            android:name="androidx.startup.InitializationProvider"
+53-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Ranok\.gradle\caches\transforms-3\9b26ebfaeedcc0fd74d356a043bd55ec\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+54            android:authorities="com.example.myapplication.androidx-startup"
+54-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Ranok\.gradle\caches\transforms-3\9b26ebfaeedcc0fd74d356a043bd55ec\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+55            android:exported="false" >
+55-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Ranok\.gradle\caches\transforms-3\9b26ebfaeedcc0fd74d356a043bd55ec\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+56            <meta-data
+56-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Ranok\.gradle\caches\transforms-3\9b26ebfaeedcc0fd74d356a043bd55ec\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+57                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+57-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Ranok\.gradle\caches\transforms-3\9b26ebfaeedcc0fd74d356a043bd55ec\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+58                android:value="androidx.startup" />
+58-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Ranok\.gradle\caches\transforms-3\9b26ebfaeedcc0fd74d356a043bd55ec\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+59            <meta-data
+59-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Ranok\.gradle\caches\transforms-3\a1f6dda9abcdfc34fe64149133f9505e\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+60                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+60-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Ranok\.gradle\caches\transforms-3\a1f6dda9abcdfc34fe64149133f9505e\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+61                android:value="androidx.startup" />
+61-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Ranok\.gradle\caches\transforms-3\a1f6dda9abcdfc34fe64149133f9505e\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+62            <meta-data
+62-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+63                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+63-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+64                android:value="androidx.startup" />
+64-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+65        </provider>
+66
+67        <receiver
+67-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+68            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+68-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+69            android:directBootAware="false"
+69-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+70            android:enabled="true"
+70-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+71            android:exported="true"
+71-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+72            android:permission="android.permission.DUMP" >
+72-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+73            <intent-filter>
+73-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+74                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+74-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+74-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+75            </intent-filter>
+76            <intent-filter>
+76-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+77                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+77-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+77-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+78            </intent-filter>
+79            <intent-filter>
+79-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+80                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+80-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+80-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+81            </intent-filter>
+82            <intent-filter>
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+83                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+83-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+83-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Ranok\.gradle\caches\transforms-3\6ca67c9319eb771c473c816ccb978acc\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+84            </intent-filter>
+85        </receiver>
+86    </application>
+87
+88</manifest>
