@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="horizontal"
+	android:background="@color/cardview_dark_background">
+
+	<TableRow
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<TextView
+			android:id="@+id/mainrow11"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Номер"
+			android:padding="10dp"
+			android:textColor="@color/black"/>
+
+		<TextView
+			android:id="@+id/mainrow12"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Статус заметки"
+			android:padding="10dp"
+			android:textColor="@color/black"/>
+	</TableRow>
+
+	<TableRow
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<TextView
+			android:id="@+id/mainrow21"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="1"
+			android:padding="10dp"
+			android:textColor="@color/black"/>
+
+		<TextView
+			android:id="@+id/mainrow22"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Новая"
+			android:padding="10dp"
+			android:textColor="@color/black"/>
+	</TableRow>
+
+	<TableRow
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<TextView
+			android:id="@+id/mainrow31"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="2"
+			android:padding="10dp"
+			android:textColor="@color/black"/>
+
+		<TextView
+			android:id="@+id/mainrow32"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="В работе"
+			android:padding="10dp"
+			android:textColor="@color/black"/>
+	</TableRow>
+
+	<TableRow
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<TextView
+			android:id="@+id/mainrow41"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="3"
+			android:padding="10dp"
+			android:textColor="@color/black"/>
+
+		<TextView
+			android:id="@+id/mainrow42"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Выполнена"
+			android:padding="10dp"
+			android:textColor="@color/black"/>
+	</TableRow>
+
+	<TableRow
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<TextView
+			android:id="@+id/mainrow51"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="4"
+			android:padding="10dp"
+			android:textColor="@color/black"/>
+
+		<TextView
+			android:id="@+id/mainrow52"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Отменена"
+			android:padding="10dp"
+			android:textColor="@color/black"/>
+	</TableRow>
+
+	<TableRow
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<TextView
+			android:id="@+id/mainrow61"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="5"
+			android:padding="10dp"
+			android:textColor="@color/black"/>
+
+		<TextView
+			android:id="@+id/mainrow62"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="В работе"
+			android:padding="10dp"
+			android:textColor="@color/black"/>
+	</TableRow>
+
+	<androidx.appcompat.widget.AppCompatButton
+		android:id="@+id/btnstatus"
+		android:layout_marginStart="25dp"
+		android:layout_marginEnd="25dp"
+		android:background="@drawable/button"
+		android:padding="10dp"
+		android:text="Назад"
+		android:textColor="@color/black"
+		android:textSize="22sp" />
+
+</TableLayout>
