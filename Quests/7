@@ -1,0 +1,67 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class WhaleDrawing extends JFrame {
+
+    public WhaleDrawing() {
+        super("Кит");
+        setSize(300, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        add(new WhalePanel());
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new WhaleDrawing();
+    }
+}
+
+class WhalePanel extends JPanel {
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        // Тело кита
+        g.setColor(Color.BLACK);
+        g.fillArc(50, 100, 150, 120, 0, 180);
+
+        // Глаз
+        g.setColor(Color.WHITE);
+        g.fillOval(90, 120, 10, 10);
+        g.setColor(Color.BLACK);
+        g.drawOval(90, 120, 5, 5);
+
+        // Хвост
+        g.fillRect(180, 140, 50, 20);
+        g.setColor(Color.BLACK);
+        int[] xPoints1 = {270, 268, 218};
+        int[] yPoints1 = {150, 100, 140};
+        g.fillPolygon(xPoints1, yPoints1, 3);
+
+        // Хвост
+        g.setColor(Color.BLACK);
+        int[] xPoints2 = {270, 268, 218};
+        int[] yPoints2 = {170, 120, 160};
+        g.fillPolygon(xPoints2, yPoints2, 3);
+
+        // Фонтан
+        g.setColor(Color.LIGHT_GRAY);
+        int startX = 120;
+        int startY = 50;
+
+        // Основная струя
+        for (int i = 0; i < 10; i++) {
+            g.fillRect(startX - 2, startY + i * 5, 5, 5);
+        }
+
+        // Верхние струи
+        for (int i = 0; i < 5; i++) {
+            int offsetX = i * 6;
+            int offsetY = i * 2;
+
+            g.drawLine(startX - offsetX, startY + i * 5, startX - offsetX, startY + i * 5 + 2 + offsetY);
+            g.drawLine(startX + offsetX, startY + i * 5, startX + offsetX, startY + i * 5 + 2 + offsetY);
+        }
+    }
+}
